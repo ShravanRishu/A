@@ -222,6 +222,11 @@
       pointer-events: none;
       z-index: 99;
     }
+    #birthdayVideo {
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
   </style>
 </head>
 <body>
@@ -258,6 +263,11 @@
     Isi ko kat ke khushi manao 😄<br><br>
     Aapka chhota bhai – Rishu ❤️
   </div>
+
+  <video id="birthdayVideo" class="hidden" width="320" controls>
+  <source src="V9Birthda12_41_37.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
 
   <button id="musicBtn" onclick="document.getElementById('bgMusic').play()">🎵 Play Music</button>
   <audio id="bgMusic" src="happy.mp3" loop></audio>
@@ -355,7 +365,11 @@
           clearInterval(interval);
           blowMsg.style.display = 'none';
           finalMessage.style.display = 'block';
-          setTimeout(() => finalMessage.style.opacity = 1, 50);
+          setTimeout(() => { finalMessage.style.opacity = 1;
+           const video = document.getElementById('birthdayVideo');
+         video.classList.remove('hidden');
+          video.play();
+          }, 50);
           showFireworks();
           fireworkSound.play();
         }
